@@ -1,6 +1,8 @@
 <?php
 	class View_Main{				
-		function generate(){
-			include 'application/view/view_index.php';
+		function generate($header, $content, $footer, $data = null){
+            include 'application/view/'.$header;
+            include 'application/view/'.$content;
+            include 'application/view/'.$footer;
 		}	
 	}
