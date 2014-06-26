@@ -1,67 +1,80 @@
 <?php
 	class Route{
-    static function start(){
-        // ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€ Ð¸ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ Ð¿Ð¾ ÑƒÐ¼Ð¾Ð»Ñ‡Ð°Ð½Ð¸ÑŽ
-        $controller_name = 'Main';
-        $action_name = 'index';
+		static function run(){
+			// êîíòðîëëåð è äåéñòâèå ïî óìîë÷àíèþ
+			$controller_name = 'Main';
+			$action_name = 'main';
+			
+			$routes = explode('/', $_SERVER['REQUEST_URI']);
+			
+			// ïîëó÷àåì èìÿ êîíòðîëëåðà
+			if(!empty($routes[1])){	
+				$controller_name = $routes[1];			
+			}
         
-        $routes = explode('/', $_SERVER['REQUEST_URI']);
+			// ïîëó÷àåì èìÿ ýêøåíà
+			if ( !empty($routes[2]) ){
+				$action_name = $routes[2];			
+			}
 
-        // Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¸Ð¼Ñ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€Ð°
-        if(!empty($routes[1])){	
-            $controller_name = $routes[1];			
-        }
-        
-        // Ð¿Ð¾Ð»ÑƒÑ‡Ð°ÐµÐ¼ Ð¸Ð¼Ñ ÑÐºÑˆÐµÐ½Ð°
-        if ( !empty($routes[2]) ){
-            $action_name = $routes[2];			
-        }
+			// äîáàâëÿåì ïðåôèêñû
+			$model_name = 'Model_'.$controller_name;
+			$controller_name = 'Controller_'.$controller_name;
+			$action_name = 'action_'.$action_name;			
+			
+			// ïîäöåïëÿåì ôàéë ñ êëàññîì ìîäåëè (ôàéëà ìîäåëè ìîæåò è íå áûòü)
+			$model_file = strtolower($model_name).'.php';
+			$model_path = "application/core/".$model_file;
+			if(file_exists($model_path)){
+				include "application/core/".$model_file;
+			}
 
-        // Ð´Ð¾Ð±Ð°Ð²Ð»ÑÐµÐ¼ Ð¿Ñ€ÐµÑ„Ð¸ÐºÑÑ‹
-        $model_name = 'Model_'.$controller_name;
-        $controller_name = 'Controller_'.$controller_name;
-        $action_name = 'action_'.$action_name;
-
-        // Ð¿Ð¾Ð´Ñ†ÐµÐ¿Ð»ÑÐµÐ¼ Ñ„Ð°Ð¹Ð» Ñ ÐºÐ»Ð°ÑÑÐ¾Ð¼ Ð¼Ð¾Ð´ÐµÐ»Ð¸ (Ñ„Ð°Ð¹Ð»Ð° Ð¼Ð¾Ð´ÐµÐ»Ð¸ Ð¼Ð¾Ð¶ÐµÑ‚ Ð¸ Ð½Ðµ Ð±Ñ‹Ñ‚ÑŒ)
-        $model_file = strtolower($model_name).'.php';
-        $model_path = "application/models/".$model_file;
-        if(file_exists($model_path)){
-            include "application/models/".$model_file;
-        }
-
-        // Ð¿Ð¾Ð´Ñ†ÐµÐ¿Ð»ÑÐµÐ¼ Ñ„Ð°Ð¹Ð» Ñ ÐºÐ»Ð°ÑÑÐ¾Ð¼ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€Ð°
-        $controller_file = strtolower($controller_name).'.php';
-        $controller_path = "application/controllers/".$controller_file;
-        if(file_exists($controller_path)){
-            include "application/controllers/".$controller_file;
-        }else{
-            /*
-            Ð¿Ñ€Ð°Ð²Ð¸Ð»ÑŒÐ½Ð¾ Ð±Ñ‹Ð»Ð¾ Ð±Ñ‹ ÐºÐ¸Ð½ÑƒÑ‚ÑŒ Ð·Ð´ÐµÑÑŒ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ,
-            Ð½Ð¾ Ð´Ð»Ñ ÑƒÐ¿Ñ€Ð¾Ñ‰ÐµÐ½Ð¸Ñ ÑÑ€Ð°Ð·Ñƒ ÑÐ´ÐµÐ»Ð°ÐµÐ¼ Ñ€ÐµÐ´Ð¸Ñ€ÐµÐºÑ‚ Ð½Ð° ÑÑ‚Ñ€Ð°Ð½Ð¸Ñ†Ñƒ 404
-            */
-            Route::ErrorPage404();
-        }
-        
-        // ÑÐ¾Ð·Ð´Ð°ÐµÐ¼ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€
-        $controller = new $controller_name;
-        $action = $action_name;		
-        
-        if(method_exists($controller, $action)){
-            // Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÐµÐ¼ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ ÐºÐ¾Ð½Ñ‚Ñ€Ð¾Ð»Ð»ÐµÑ€Ð°
-            $controller->$action();
-        }else{
-            // Ð·Ð´ÐµÑÑŒ Ñ‚Ð°ÐºÐ¶Ðµ Ñ€Ð°Ð·ÑƒÐ¼Ð½ÐµÐµ Ð±Ñ‹Ð»Ð¾ Ð±Ñ‹ ÐºÐ¸Ð½ÑƒÑ‚ÑŒ Ð¸ÑÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ
-            Route::ErrorPage404();
-        }
-    
-    }
-    
-    function ErrorPage404()
-    {
-        $host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-        header('HTTP/1.1 404 Not Found');
-        header("Status: 404 Not Found");
-        header('Location:'.$host.'404');
-    }
-}
+			// ïîäöåïëÿåì ôàéë ñ êëàññîì êîíòðîëëåðà
+			$controller_file = strtolower($controller_name).'.php';
+			$controller_path = "application/core/".$controller_file;
+			if(file_exists($controller_path)){
+				include "application/core/".$controller_file;
+			}else{
+				/*
+				ïðàâèëüíî áûëî áû êèíóòü çäåñü èñêëþ÷åíèå,
+				íî äëÿ óïðîùåíèÿ ñðàçó ñäåëàåì ðåäèðåêò íà ñòðàíèöó 404
+				*/
+				self::ErrorPage404(1);
+			}
+			
+			$controller = new $controller_name;
+			$action = $action_name;
+			
+			if(method_exists($controller, $action)){
+				// âûçûâàåì äåéñòâèå êîíòðîëëåðà
+				$controller->$action();
+			}else{
+				// çäåñü òàêæå ðàçóìíåå áûëî áû êèíóòü èñêëþ÷åíèå
+				self::ErrorPage404(2);
+			}
+		}
+		
+		
+		
+		
+		
+		
+		static function ErrorController(){
+			echo 'ErrorController';			
+		}
+		static function ErrorAction(){
+			echo 'ErrorAction';
+		}
+		static function ErrorPage404($num){
+			//$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+			//header('HTTP/1.1 404 Not Found');
+			//header("Status: 404 Not Found");
+			//header('Location:'.$host.'404');
+			if($num == 1){
+				echo 'ErrorPage404   -    1';
+			}else{
+				echo 'ErrorPage404   -    2';
+			}
+		}
+	}
 ?>
