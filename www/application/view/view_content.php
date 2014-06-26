@@ -1,7 +1,11 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: O.Zabiyaka
- * Date: 26.06.14
- * Time: 15:19
- */ 
+<div>
+    <p>
+        CONTENT
+        <?php
+            foreach($data as $row){
+                echo '<pre>';
+                print_r($data);
+            }
+        ?>
+    </p>
+</div>
