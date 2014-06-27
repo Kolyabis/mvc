@@ -7,7 +7,7 @@
         public function  get_model_main($m, $c){
             $m = $this->menu = self::get_menu();
             $c = $this->content = self::get_content();
-            $d[] = array(1 => $m, 2 => $c);
+            $d[] = array('menu' => $m, 'content' => $c);
             return $d;
         }
         public function  get_menu(){

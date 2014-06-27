@@ -5,7 +5,7 @@
             //Разбераем массив
             foreach($data as $row){
                 echo '<pre>';
-                print_r($row[1]);
+                print_r($row[menu]);
             }
 
          ?>

@@ -4,7 +4,7 @@
         <?php
             foreach($data as $row){
                 echo '<pre>';
-                print_r($row[2]);
+                print_r($row['content']);
             }
         ?>
     </p>
