@@ -9,15 +9,9 @@
 		}
 		
         public function action_main(){
-            $data = $this->model->get_model_main();
-            $data = $this->data_arr->get_content($data);
+            $data = $this->model->get_model_main($m,$c);
             $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data);
 		}
-
-        public function __call($n, $p){
-                            echo '1';
-        }
-
 	}
 
 ?>
