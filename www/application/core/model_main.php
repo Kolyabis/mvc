@@ -5,6 +5,8 @@
         public  $content;
         public $d;
         public function  get_model_main($m, $c){
+        	//THIS IS NOT RIGHT!!!!!!!!!!!!!!!!!!!!!!!!!! SELF::get_menu(); self is static context! 
+        	// need $this->get_menu();
             $m = $this->menu = self::get_menu();
             $c = $this->content = self::get_content();
             $d[] = array('menu' => $m, 'content' => $c);
