@@ -48,18 +48,8 @@
 			if(method_exists($controller, $action)){
 				// вызываем действие контроллера
 				$controller->$action();
-			}else{
-				// здесь также разумнее было бы кинуть исключение
-				self::ErrorPage404(2);
 			}
 		}
-
-
-		
-		
-		
-		
-		
 		
 		static function ErrorController(){
 			echo 'ErrorController';			
