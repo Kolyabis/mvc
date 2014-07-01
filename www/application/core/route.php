@@ -2,13 +2,10 @@
 	class Route{
 		static public $db;
         static function run(){
-            //Метод который проверяет какой контроллер запустить. Проверка по ( alias ) в таблице
+            // Метод который проверяет какой контроллер запустить. Проверка по ( alias ) в таблице
             $controller_name = self::getController();
-			//Метод который проверяет ( ACTION )
+			// Метод который проверяет ( ACTION )
             $action_name = self::getAction();
-
-        
-
 
 			// добавляем префиксы
 			$model_name = 'Model_'.$controller_name;
@@ -17,16 +14,16 @@
 			
 			// подцепляем файл с классом модели (файла модели может и не быть)
 			$model_file = strtolower($model_name).'.php';
-			$model_path = "application/core/".$model_file;
+			$model_path = "application/model/".$model_file;
 			if(file_exists($model_path)){
-				include "application/core/".$model_file;
+				include "application/model/".$model_file;
 			}
 
 			// подцепляем файл с классом контроллера
 			$controller_file = strtolower($controller_name).'.php';
-			$controller_path = "application/core/".$controller_file;
+			$controller_path = "application/controller/".$controller_file;
 			if(file_exists($controller_path)){
-				include "application/core/".$controller_file;
+				include "application/controller/".$controller_file;
 			}else{
 				/*
 				правильно было бы кинуть здесь исключение,
@@ -79,7 +76,7 @@
             $action_name = 'main';
             $routes = explode('/', $_SERVER['REQUEST_URI']);
             // получаем имя экшена
-            if ( !empty($routes[2]) ){
+            if (!empty($routes[2])){
                 $action_name = $routes[2];
             }
             return $action_name;

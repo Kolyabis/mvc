@@ -1,10 +1,10 @@
 <?php
-	class Model_Main{
+	class Model_blog extends Model{
         protected $db;
         public  $menu;
         public  $content;
         public $d;
-        public function  get_model_main($m, $c){
+        public function  get_model_main(){
             $m = $this->menu = self::get_menu();
             $c = $this->content = self::get_content();
             $d[] = array('menu' => $m, 'content' => $c);
@@ -23,4 +23,3 @@
             return $content;
         }
     }
-?>

@@ -7,12 +7,12 @@
 	//define('DB_HOST', 'localhost');
 	//define('DB_NAME', 'mybase');
 	set_include_path(get_include_path(). PS ."application ". DS ." core". DS ."route.php"
-									   . PS ."application ". DS ." core". DS ."controller_main.php"
-									   . PS ."application ". DS ." core". DS ."model_main.php"
+									   . PS ."application ". DS ." core". DS ."controller.php"
+									   . PS ."application ". DS ." core". DS ."model.php"
 									   . PS ."application ". DS ." core". DS ."view_main.php");
 	require_once 'application/core/route.php';
-	//require_once 'application/core/controller_main.php';
-	//require_once 'application/core/model_main.php';	
+	require_once 'application/core/controller.php';
+	require_once 'application/core/model.php';
 	require_once 'application/core/view_main.php';
     require_once 'lib_classes/data_class.php';
     class Db_ext {
