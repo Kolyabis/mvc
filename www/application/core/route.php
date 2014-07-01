@@ -48,10 +48,11 @@
 			echo 'ErrorAction';
 		}
 		static function ErrorPage404(){
-			$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-			header('HTTP/1.1 404 Not Found');
-			header("Status: 404 Not Found");
-			header('Location:'.$host.'404');
+			//$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+			//header('HTTP/1.1 404 Not Found');
+			//header("Status: 404 Not Found");
+			//header('Location:'.$host.'404');
+            echo 'Error404';
 		}
         /********************************** Метод проверки ( alias ) для запуска контроллера *******************************/
         public function getController(){
@@ -62,9 +63,9 @@
             }else{
                 $controller_name = 'Main';
             }
-            $rezult = self::$db->query("SELECT prefix FROM controller WHERE prefix = '$controller_name'");
+            $rezult = self::$db->query("SELECT c.prefix FROM menucp m, controller c WHERE m.id_controller = c.id and m.alias = '$controller_name'");
             $prefixController = $rezult->fetchAll(PDO::FETCH_ASSOC);
-            if($prefixController[0]['prefix'] == $controller_name){
+            if($prefixController[0]['prefix']){
                 return $prefixController[0]['prefix'];
             }else{
                 return $controller_name;

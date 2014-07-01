@@ -2,14 +2,11 @@
 	ini_set('display_errors', 1);
 	define('PS', PATH_SEPARATOR);
 	define('DS', DIRECTORY_SEPARATOR);
-	//define('DB_USER', '2zdizayn');
-	//define('DB_PASS', 'konstantin82');
-	//define('DB_HOST', 'localhost');
-	//define('DB_NAME', 'mybase');
 	set_include_path(get_include_path(). PS ."application ". DS ." core". DS ."route.php"
 									   . PS ."application ". DS ." core". DS ."controller.php"
 									   . PS ."application ". DS ." core". DS ."model.php"
-									   . PS ."application ". DS ." core". DS ."view_main.php");
+									   . PS ."application ". DS ." core". DS ."view_main.php"
+									   . PS ."lib_classes ". DS ."data_class.php");
 	require_once 'application/core/route.php';
 	require_once 'application/core/controller.php';
 	require_once 'application/core/model.php';

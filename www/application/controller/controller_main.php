@@ -12,4 +12,8 @@
             $data = $this->model->get_model_main();
             $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data);
 		}
+        public function action_del(){
+            $data = null;
+            $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data);
+        }
 	}

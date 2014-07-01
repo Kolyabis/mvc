@@ -12,7 +12,7 @@
         }
         public function  get_menu(){
             $this->db = Db_ext::getInstance();
-            $rezult = $this->db->query('SELECT * FROM menu');
+            $rezult = $this->db->query('SELECT * FROM menucp');
             $menu = $rezult->fetchAll(PDO::FETCH_ASSOC);
             return $menu;
         }

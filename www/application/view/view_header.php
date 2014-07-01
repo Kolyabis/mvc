@@ -2,11 +2,10 @@
 	<p>
 		ETO HEADER
         <?php
-            //Разбераем массив
-            foreach($data as $row){
-                echo '<pre>';
-                print_r($row[menu]);
+            if(is_array($data)){
+                //Разбераем массив меню
+                data_class::get_menucp($data);
             }
-         ?>
+        ?>
 	</p>
 </div>
