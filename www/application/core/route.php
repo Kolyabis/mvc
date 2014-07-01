@@ -1,21 +1,14 @@
 <?php
 	class Route{
-		static function run(){
-			// контроллер и действие по умолчанию
-			$controller_name = 'Main';
-			$action_name = 'main';
-			
-			$routes = explode('/', $_SERVER['REQUEST_URI']);
-			
-			// получаем имя контроллера
-			if(!empty($routes[1])){	
-				$controller_name = $routes[1];			
-			}
+		static public $db;
+        static function run(){
+            //Метод который проверяет какой контроллер запустить. Проверка по ( alias ) в таблице
+            $controller_name = self::getController();
+			//Метод который проверяет ( ACTION )
+            $action_name = self::getAction();
+
         
-			// получаем имя экшена
-			if ( !empty($routes[2]) ){
-				$action_name = $routes[2];			
-			}
+
 
 			// добавляем префиксы
 			$model_name = 'Model_'.$controller_name;
@@ -39,7 +32,7 @@
 				правильно было бы кинуть здесь исключение,
 				но для упрощения сразу сделаем редирект на страницу 404
 				*/
-				self::ErrorPage404(1);
+				self::ErrorPage404();
 			}
 			
 			$controller = new $controller_name;
@@ -57,16 +50,40 @@
 		static function ErrorAction(){
 			echo 'ErrorAction';
 		}
-		static function ErrorPage404($num){
-			//$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
-			//header('HTTP/1.1 404 Not Found');
-			//header("Status: 404 Not Found");
-			//header('Location:'.$host.'404');
-			if($num == 1){
-				echo 'ErrorPage404   -    1';
-			}else{
-				echo 'ErrorPage404   -    2';
-			}
+		static function ErrorPage404(){
+			$host = 'http://'.$_SERVER['HTTP_HOST'].'/';
+			header('HTTP/1.1 404 Not Found');
+			header("Status: 404 Not Found");
+			header('Location:'.$host.'404');
 		}
+        /********************************** Метод проверки ( alias ) для запуска контроллера *******************************/
+        public function getController(){
+            self::$db = Db_ext::getInstance();
+            $routes = explode('/', $_SERVER['REQUEST_URI']);
+            if(!empty($routes[1])){
+                $controller_name = $routes[1];
+            }else{
+                $controller_name = 'Main';
+            }
+            $rezult = self::$db->query("SELECT prefix FROM controller WHERE prefix = '$controller_name'");
+            $prefixController = $rezult->fetchAll(PDO::FETCH_ASSOC);
+            if($prefixController[0]['prefix'] == $controller_name){
+                return $prefixController[0]['prefix'];
+            }else{
+                return $controller_name;
+            }
+        }
+        /****************************************************************************************************************** */
+        /********************************** Метод проверки ( action ) для запуска акшена ************************************/
+        public function getAction(){
+            $action_name = 'main';
+            $routes = explode('/', $_SERVER['REQUEST_URI']);
+            // получаем имя экшена
+            if ( !empty($routes[2]) ){
+                $action_name = $routes[2];
+            }
+            return $action_name;
+        }
+        /****************************************************************************************************************** */
 	}
 ?>
