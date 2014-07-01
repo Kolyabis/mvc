@@ -1,6 +1,7 @@
 <?php
     class data_class{
         // Метод разбора меню
+
         public function get_menucp($array){
             foreach($array as $row){
                 foreach($row['menu'] as $val){
@@ -8,11 +9,12 @@
                 }
             }
         }
+
         // Метод разбора контента
         public function get_content($array){
             foreach($array as $row){
                 foreach($row['content'] as $val){
-                    echo "<p>".$val['name']."</p>\n<div>".$val['content']."</div>";
+                    echo "<div>".$val['name']."</div>\n<div>".$val['content']."</div>";
                 }
             }
         }

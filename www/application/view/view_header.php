@@ -5,7 +5,7 @@
 	<title>TEST-MVC</title>
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
-	<link href="css/templates.css" rel="stylesheet" type="text/css" />
+	<link href="../css/templates.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 <div id="menu">
