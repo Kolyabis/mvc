@@ -1,11 +1,7 @@
-<div>
-    <p>
-        CONTENT
-        <?php
-            foreach($data as $row){
-                echo '<pre>';
-                print_r($row['content']);
-            }
-        ?>
-    </p>
+<div id="content">
+    <?php
+        if(is_array($data)){
+            echo data_class::get_content($data);
+        }
+    ?>
 </div>
