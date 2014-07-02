@@ -20,7 +20,7 @@
         public function get_menu($array){
             foreach($array as $row){
                 foreach($row['menu'] as $val){
-                    echo "<div><a href=".$val['alias'].">".$val['name_menu']."</a></div>";
+                    echo "<div class='list'>".$val['name_menu']."</div>";
                 }
                 /*echo '<pre>';
                 print_r($row['menu']);*/

@@ -7,7 +7,7 @@
             $menucp = $this->get_menucp();
             $menu = $this->get_menu();
             //$content = $this->get_content();
-            $data[] = array('menucp' => $menucp, 'menu' => $menu, 'content' => $content);
+            $data[] = array('menucp' => $menucp, 'menu' => $menu/*, 'content' => $content*/);
             return $data;
         }
         public function  get_menucp(){
@@ -22,7 +22,7 @@
             $menu = $rezult->fetchAll(PDO::FETCH_ASSOC);
             return $menu;
         }
-        public function get_content(){
+        /*public function get_content(){
             $this->db = Db_ext::getInstance();
             $routes = explode('/', $_SERVER['REQUEST_URI']);
             if(!empty($routes[1])){
@@ -33,6 +33,5 @@
             $rezult = $this->db->query("SELECT * FROM menucp m, categorya c WHERE m.id_categorya = c.id and m.alias = '$alias'");
             $content = $rezult->fetchAll(PDO::FETCH_ASSOC);
             return $content;
-        }
+        }*/
     }
-?>
