@@ -8,10 +8,13 @@
 	<link href="../css/templates.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<div id="menu">
-    <?php
-        if(is_array($data)){
-            data_class::get_menucp($data);
-        }
-    ?>
-</div>
+    <div class="center">
+        <div>
+            <div id="menu">
+                <?php
+                    if(is_array($data)){
+                        data_class::get_menucp($data);
+                    }
+                ?>
+            </div>
+        </div>

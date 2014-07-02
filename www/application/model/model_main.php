@@ -1,18 +1,24 @@
 <?php
 	class Model_Main extends Model{
         protected $db;
-        public  $menu;
-        public  $content;
-        public $d;
+        public $data;
+        /* Вызов методов с данными и формирование одного многомерного массива */
         public function  get_model_main(){
-            $m = $this->menu = $this->get_menu();
-            $c = $this->content = $this->get_content();
-            $d[] = array('menu' => $m, 'content' => $c);
-            return $d;
+            $menucp = $this->get_menucp();
+            $menu = $this->get_menu();
+            //$content = $this->get_content();
+            $data[] = array('menucp' => $menucp, 'menu' => $menu, 'content' => $content);
+            return $data;
         }
-        public function  get_menu(){
+        public function  get_menucp(){
             $this->db = Db_ext::getInstance();
             $rezult = $this->db->query('SELECT * FROM menucp');
+            $menucp = $rezult->fetchAll(PDO::FETCH_ASSOC);
+            return $menucp;
+        }
+        public function get_menu(){
+            $this->db = Db_ext::getInstance();
+            $rezult = $this->db->query('SELECT * FROM menu');
             $menu = $rezult->fetchAll(PDO::FETCH_ASSOC);
             return $menu;
         }

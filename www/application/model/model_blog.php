@@ -1,20 +1,18 @@
 <?php
 	class Model_blog extends Model{
         protected $db;
-        public  $menu;
-        public  $content;
-        public $d;
+        public $data;
         public function  get_model_main(){
-            $m = $this->menu = self::get_menu();
-            $c = $this->content = self::get_content();
-            $d[] = array('menu' => $m, 'content' => $c);
-            return $d;
+            $menu =  $this->get_menucp();
+            $content =  $this->get_content();
+            $data[] = array('menucp' => $menu, 'content' => $content);
+            return $data;
         }
-        public function  get_menu(){
+        public function  get_menucp(){
             $this->db = Db_ext::getInstance();
             $rezult = $this->db->query('SELECT * FROM menucp');
-            $menu = $rezult->fetchAll(PDO::FETCH_ASSOC);
-            return $menu;
+            $menucp = $rezult->fetchAll(PDO::FETCH_ASSOC);
+            return $menucp;
         }
         public function get_content(){
             $this->db = Db_ext::getInstance();

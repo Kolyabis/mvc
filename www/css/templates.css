@@ -1,12 +1,28 @@
-#content{
-    width: 80%;
-    padding: 10px;
-    border-radius: 10px;
-    border: solid 1px #000000;
-}
+body { margin: 10px 0 0; background: #fff; font: .74em "Trebuchet MS", Arial, Sans-Serif; color: #444; }
+.center{padding: 10px;}
 #menu{
-    width: 80%;
+    width: 98%;
     padding: 10px;
-    border-radius: 10px;
+    border-radius:3px;
     border: solid 1px #000000;
+    margin-bottom: 5px;
+}
+#menucp{
+    margin-right: 5px;
+    font-size: 16px;
+}
+#activ{
+    color: #ffffff;
+    padding:3px;
+    border: solid 1px dimgray;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: darkred;
+}
+#content{
+    width: 98%;
+    padding: 10px;
+    border-radius: 3px;
+    border: solid 1px #000000;
+    margin-bottom: 5px;
 }
