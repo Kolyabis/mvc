@@ -12,8 +12,8 @@
         <div>
             <div id="menu">
                 <?php
-                    if(is_array($data)){
-                        data_class::get_menucp($data);
+                    if(is_array($data_menu)){
+                        data_class::get_menucp($data_menu);
                     }
                 ?>
             </div>

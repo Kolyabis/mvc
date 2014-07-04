@@ -9,7 +9,8 @@
 		}
 		
         public function action_main(){
-            $data = $this->model->get_model_main();
-            $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data);
+            $data_menu = $this->model->get_menucp();
+            $data_content = $this->model->get_content();
+            $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data_menu, $data_content);
 		}
 	}

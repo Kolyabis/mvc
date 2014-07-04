@@ -9,11 +9,12 @@
 		}
 		
         public function action_main(){
-            $data = $this->model->get_model_main();
-            $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data);
+            $data_menu = $this->model->get_menucp();
+            $data_content = $this->model->get_menu();
+            $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data_menu, $data_content);
 		}
         public function action_del(){
-            $data = $this->model->get_model_main();
+            $data = $this->model->get_main();
             $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data);
         }
 	}

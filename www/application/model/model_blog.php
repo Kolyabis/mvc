@@ -2,12 +2,12 @@
 	class Model_blog extends Model{
         protected $db;
         public $data;
-        public function  get_model_main(){
+        /*public function  get_main(){
             $menu =  $this->get_menucp();
             $content =  $this->get_content();
             $data[] = array('menucp' => $menu, 'content' => $content);
             return $data;
-        }
+        }*/
         public function  get_menucp(){
             $this->db = Db_ext::getInstance();
             $rezult = $this->db->query('SELECT * FROM menucp');
