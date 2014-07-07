@@ -1,5 +1,5 @@
 <div id="content">
-    <div style="float: left; width: 60%;">
+    <div id="help1" style="float: left;">
         <?php
             if(is_array($data_content)){
                 if(array_key_exists('name_menu', $data_content[0]) AND !empty($data_content[0]['name_menu'])){
@@ -11,8 +11,8 @@
             }
         ?>
     </div>
-    <?php $a=1; if($a == 1): ?>
-        <div style="float: right; width: 38%;">sdf</div>
+    <?php if($valStyle == 1): ?>
+        <div id="help" style="float: right; border: 1px solid #ccc; padding: 10px;">sdf</div>
     <?php endif; ?>
 
 

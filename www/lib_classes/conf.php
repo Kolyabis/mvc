@@ -2,16 +2,20 @@
 	ini_set('display_errors', 1);
 	define('PS', PATH_SEPARATOR);
 	define('DS', DIRECTORY_SEPARATOR);
-	set_include_path(get_include_path(). PS ."application ". DS ." core". DS ."route.php"
-									   . PS ."application ". DS ." core". DS ."controller.php"
-									   . PS ."application ". DS ." core". DS ."model.php"
-									   . PS ."application ". DS ." core". DS ."view_main.php"
-									   . PS ."lib_classes ". DS ."data_class.php");
-	require_once 'application/core/route.php';
-	require_once 'application/core/controller.php';
-	require_once 'application/core/model.php';
-	require_once 'application/core/view_main.php';
-    require_once 'lib_classes/data_class.php';
+	set_include_path(get_include_path()
+    . PS ."application ". DS ." core". DS ."route.php"
+	. PS ."application ". DS ." core". DS ."controller.php"
+	. PS ."application ". DS ." core". DS ."model.php"
+	. PS ."application ". DS ." core". DS ."view_main.php"
+	. PS ."lib_classes ". DS ."data_class.php");
+function core($class){
+    @include 'application/core/'.$class.'.php';
+}
+function lib($class){
+    @include 'lib_classes/'.$class.'.php';
+}
+spl_autoload_register('core');
+spl_autoload_register('lib');
     class Db_ext {
         protected static $dsn = 'mysql:dbname=mybase;host=localhost';
         protected static $user = '2zdizayn';

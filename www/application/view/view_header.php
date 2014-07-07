@@ -7,7 +7,18 @@
 	<meta name="keywords" content="" />
 	<link href="../css/templates.css" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<script type="text/javascript">
+    function editDiv(){
+        var val = <?php echo $valStyle = 1; ?> ;
+        if(val == 0){
+            document.getElementById("help1").style.width='100%';
+        }else{
+            document.getElementById("help1").style.width='70%';
+            document.getElementById("help").style.width='27%';
+        }
+    }
+</script>
+<body onload="editDiv()">
     <div class="center">
         <div>
             <div id="menu">
