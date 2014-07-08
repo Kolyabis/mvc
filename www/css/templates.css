@@ -1,7 +1,7 @@
 .clear{
 	clear:both;
 }
-body { margin: 10px 0 0; background: #fff; font: .74em "Trebuchet MS", Arial, Sans-Serif; color: #444; }
+body { margin: 10px 0 0; background: #fff;  font: 16px "Trebuchet MS", Arial, Sans-Serif; color: #444; }
 .center{padding: 10px;}
 #menu{
     width: 98%;
@@ -30,9 +30,16 @@ body { margin: 10px 0 0; background: #fff; font: .74em "Trebuchet MS", Arial, Sa
     margin-bottom: 5px;
 }
 .list {
-    width: 98%;
-    padding: 8px;
+    width: 96%;
+    padding: 3px 20px 3px 20px;
     border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+.list:hover {
+    width: 96%;
+    padding: 3px 20px 3px 20px;
+    border: 1px solid #828282;
+    background-color: #CFCFCF;
     margin-bottom: 5px;
 }
 

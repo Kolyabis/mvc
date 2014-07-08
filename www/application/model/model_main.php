@@ -16,13 +16,28 @@
             $menucp = $rezult->fetchAll(PDO::FETCH_ASSOC);
             return $menucp;
         }
+        // Метод возврата массива меню сайта для админки
         public function get_menu(){
             $this->db = Db_ext::getInstance();
             $rezult = $this->db->query('SELECT * FROM menu');
             $menu = $rezult->fetchAll(PDO::FETCH_ASSOC);
             return $menu;
         }
-        public function get_content(){
+        // Метод возврата массива с категориями для админки
+        public function get_category(){
+            $this->db = Db_ext::getInstance();
+            $rezult = $this->db->query('SELECT id, name, alias, status FROM categorya');
+            $category = $rezult->fetchAll(PDO::FETCH_ASSOC);
+            return $category;
+        }
+        public function get_articles(){
+            $this->db = Db_ext::getInstance();
+            $rezult = $this->db->query('SELECT * FROM blog');
+            $articles = $rezult->fetchAll(PDO::FETCH_ASSOC);
+            return $articles;
+        }
+        /* останется этот метод ля отображения сайта
+         * public function get_content(){
             $this->db = Db_ext::getInstance();
             $routes = explode('/', $_SERVER['REQUEST_URI']);
             if(!empty($routes[1])){
@@ -33,5 +48,5 @@
             $rezult = $this->db->query("SELECT * FROM menucp m, categorya c WHERE m.id_categorya = c.id and m.alias = '$alias'");
             $content = $rezult->fetchAll(PDO::FETCH_ASSOC);
             return $content;
-        }
+        }*/
     }

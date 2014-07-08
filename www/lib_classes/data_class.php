@@ -15,15 +15,21 @@
             }
         }
         // Метод вывода меню сайта и редактирование его
-        public function get_menu($array){
+        static function getListMenu($array){
             foreach($array as $val){
                 echo "<div class='list'>".$val['name_menu']."</div>";
             }
         }
-        // Метод разбора контента
-        public function get_content($array){
+        // Метод вывода категорий сайта
+        static function getListCategory($array){
             foreach($array as $val){
-                echo "<div class='list'><span>".$val['name']."</span>\n<span>".$val['content']."</span></div>";
+                echo "<div class='list'>".$val['name']."</div>";
+            }
+        }
+        // Метод разбора контента
+        static function get_content($array){
+            foreach($array as $val){
+                echo "<div class='list'><span>".$val['name']."</span><span>".$val['content']."</span></div>";
             }
         }
     }

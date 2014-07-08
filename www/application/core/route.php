@@ -10,7 +10,7 @@
 			// добавляем префиксы
 			$model_name = 'Model_'.$controller_name;
 			$controller_name = 'Controller_'.$controller_name;
-			$action_name = 'action_'.$action_name;			
+			$action_name = 'action_'.$action_name;
 			
 			// подцепляем файл с классом модели (файла модели может и не быть)
 			$model_file = strtolower($model_name).'.php';
@@ -25,11 +25,11 @@
 			if(file_exists($controller_path)){
 				include "application/controller/".$controller_file;
 			}else{
-				/*
-				правильно было бы кинуть здесь исключение,
-				но для упрощения сразу сделаем редирект на страницу 404
-				*/
-				self::ErrorPage404();
+				try{
+                    self::ErrorPage404();
+                }catch(Exception $e){
+                    echo 'Исключение: ',  $e->getMessage(), "\n";
+                }
 			}
 			
 			$controller = new $controller_name;
@@ -74,13 +74,21 @@
         /****************************************************************************************************************** */
         /********************************** Метод проверки ( action ) для запуска акшена ************************************/
         public function getAction(){
-            $action_name = 'main';
+            self::$db = Db_ext::getInstance();
             $routes = explode('/', $_SERVER['REQUEST_URI']);
-            // получаем имя экшена
-            if (!empty($routes[2])){
-                $action_name = $routes[2];
+            if(!empty($routes[1])){
+                $action_name = $routes[1];
+            }else{
+                $action_name = 'Main';
             }
-            return $action_name;
+            $rezult = self::$db->query("SELECT a.prefix FROM menucp m, action a WHERE m.id_action = a.id and m.alias = '$action_name'");
+            $prefixAction = $rezult->fetchAll(PDO::FETCH_ASSOC);
+            if($prefixAction[0]['prefix']){
+                return $prefixAction[0]['prefix'];
+            }else{
+                return $action_name;
+            }
+
         }
         /****************************************************************************************************************** */
 	}

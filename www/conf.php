@@ -2,12 +2,12 @@
 	ini_set('display_errors', 1);
 	define('PS', PATH_SEPARATOR);
 	define('DS', DIRECTORY_SEPARATOR);
-	set_include_path(get_include_path()
-    . PS ."application ". DS ." core". DS ."route.php"
-	. PS ."application ". DS ." core". DS ."controller.php"
-	. PS ."application ". DS ." core". DS ."model.php"
-	. PS ."application ". DS ." core". DS ."view_main.php"
-	. PS ."lib_classes ". DS ."data_class.php");
+	set_include_path(get_include_path() . PS ."application ". DS ." core". DS ."route.php"
+	                                    . PS ."application ". DS ." core". DS ."controller.php"
+	                                    . PS ."application ". DS ." core". DS ."model.php"
+	                                    . PS ."application ". DS ." core". DS ."view_main.php"
+	                                    . PS ."lib_classes ". DS ."data_class.php");
+
 function core($class){
     @include 'application/core/'.$class.'.php';
 }
