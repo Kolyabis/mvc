@@ -17,7 +17,7 @@
         // Метод вывода меню сайта и редактирование его
         static function getListMenu($array){
             foreach($array as $val){
-                echo "<div class='list'>".$val['name_menu']."</div>";
+                echo "<div class='list'>".$val['name_menu']."<span style='float: right;'><a href=".$_SERVER['REQUEST_URI']."/update/".$val['id'].">изминить</a></span></div>";
             }
         }
         // Метод вывода категорий сайта
@@ -27,9 +27,9 @@
             }
         }
         // Метод разбора контента
-        static function get_content($array){
+        static function getListArticles($array){
             foreach($array as $val){
-                echo "<div class='list'><span>".$val['name']."</span><span>".$val['content']."</span></div>";
+                echo "<div class='list'><span>".$val['name']."</span></div>";
             }
         }
     }

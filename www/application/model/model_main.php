@@ -21,20 +21,23 @@
             $this->db = Db_ext::getInstance();
             $rezult = $this->db->query('SELECT * FROM menu');
             $menu = $rezult->fetchAll(PDO::FETCH_ASSOC);
-            return $menu;
+            $menuList[] = array('menu' => $menu);
+            return $menuList;
         }
         // Метод возврата массива с категориями для админки
         public function get_category(){
             $this->db = Db_ext::getInstance();
             $rezult = $this->db->query('SELECT id, name, alias, status FROM categorya');
             $category = $rezult->fetchAll(PDO::FETCH_ASSOC);
-            return $category;
+            $categoryList[] = array('category' => $category);
+            return $categoryList;
         }
         public function get_articles(){
             $this->db = Db_ext::getInstance();
             $rezult = $this->db->query('SELECT * FROM blog');
             $articles = $rezult->fetchAll(PDO::FETCH_ASSOC);
-            return $articles;
+            $articlesList[] = array('articles' => $articles);
+            return $articlesList;
         }
         /* останется этот метод ля отображения сайта
          * public function get_content(){
