@@ -11,8 +11,14 @@
         public function action_main(){
             $data_menu = $this->model->get_menucp();
             $data_content = $this->model->get_menu();
-            $this->view->generate('view_header.php', 'view_content.php', 'view_footer.php', $data_menu, $data_content);
-		}
+            
+            
+            $view1 = $this->view->generate_view('view_header.php',  false);
+            $view2 = $this->view->generate_view('view_content.php',  $data_content);
+            $view3 = $this->view->generate_view('view_footer.php',  false);
+            
+            $this->view->generate($view1, $view2, $view3);
+	}
         public function action_category(){
             $data_menu = $this->model->get_menucp();
             $data_content = $this->model->get_category();
