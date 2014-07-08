@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b33c6fae-6d2c-4a01-b5ef-a3400bf2406d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/lib_classes/data_class.php" afterPath="$PROJECT_DIR$/www/lib_classes/data_class.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/application/model/model_main.php" afterPath="$PROJECT_DIR$/www/application/model/model_main.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/www/application/view/view_content.php" afterPath="$PROJECT_DIR$/www/application/view/view_content.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="mvc.iws" />
@@ -73,10 +71,10 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="route.php" pinned="false" current="true" current-in-tab="true">
+          <file leaf-file-name="route.php" pinned="false" current="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/www/application/core/route.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="77" column="58" selection-start="2958" selection-end="2981" vertical-scroll-proportion="3.1390886" vertical-offset="0" max-vertical-offset="1700">
+                <state line="27" column="20" selection-start="1018" selection-end="1018" vertical-scroll-proportion="-13.730769" vertical-offset="102" max-vertical-offset="1700">
                   <folding>
                     <marker date="1404804428096" expanded="true" signature="2220:2325" placeholder="SELECT c.pre..menucp..." />
                     <marker date="1404804428096" expanded="true" signature="3175:3268" placeholder="SELECT a.pre..menucp..." />
@@ -142,12 +140,12 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="data_class.php" pinned="false" current="false" current-in-tab="false">
+          <file leaf-file-name="data_class.php" pinned="false" current="true" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/www/lib_classes/data_class.php">
               <provider selected="true" editor-type-id="text-editor">
-                <state line="19" column="125" selection-start="956" selection-end="984" vertical-scroll-proportion="-11.076923" vertical-offset="54" max-vertical-offset="720">
+                <state line="19" column="127" selection-start="986" selection-end="986" vertical-scroll-proportion="0.7146402" vertical-offset="54" max-vertical-offset="720">
                   <folding>
-                    <marker date="1404826424037" expanded="true" signature="933:946" placeholder="..." />
+                    <marker date="1404827515349" expanded="true" signature="933:946" placeholder="..." />
                   </folding>
                 </state>
               </provider>
@@ -550,7 +548,11 @@
       <created>1404820350924</created>
       <updated>1404820350924</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="08.07.14">
+      <created>1404826888829</created>
+      <updated>1404826888829</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -657,7 +659,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="17" selection-start="246" selection-end="246" vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="340">
           <folding>
-            <marker date="1404826424037" expanded="true" signature="933:946" placeholder="..." />
+            <marker date="1404827515349" expanded="true" signature="933:946" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -700,7 +702,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="35" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="187">
           <folding>
-            <marker date="1404826424037" expanded="true" signature="933:946" placeholder="..." />
+            <marker date="1404827515349" expanded="true" signature="933:946" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -947,21 +949,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/lib_classes/data_class.php">
+    <entry file="file://$PROJECT_DIR$/www/application/core/route.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="125" selection-start="956" selection-end="984" vertical-scroll-proportion="-11.076923" vertical-offset="54" max-vertical-offset="720">
+        <state line="27" column="20" selection-start="1018" selection-end="1018" vertical-scroll-proportion="-13.730769" vertical-offset="102" max-vertical-offset="1700">
           <folding>
-            <marker date="1404826424037" expanded="true" signature="933:946" placeholder="..." />
+            <marker date="1404804428096" expanded="true" signature="2220:2325" placeholder="SELECT c.pre..menucp..." />
+            <marker date="1404804428096" expanded="true" signature="3175:3268" placeholder="SELECT a.pre..menucp..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/www/application/core/route.php">
+    <entry file="file://$PROJECT_DIR$/www/lib_classes/data_class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="58" selection-start="2958" selection-end="2981" vertical-scroll-proportion="3.1390886" vertical-offset="0" max-vertical-offset="1700">
+        <state line="19" column="127" selection-start="986" selection-end="986" vertical-scroll-proportion="0.7146402" vertical-offset="54" max-vertical-offset="720">
           <folding>
-            <marker date="1404804428096" expanded="true" signature="2220:2325" placeholder="SELECT c.pre..menucp..." />
-            <marker date="1404804428096" expanded="true" signature="3175:3268" placeholder="SELECT a.pre..menucp..." />
+            <marker date="1404827515349" expanded="true" signature="933:946" placeholder="..." />
           </folding>
         </state>
       </provider>
